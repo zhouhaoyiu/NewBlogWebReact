@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TopBar from './components/TopBar'
-import pageBox from './components/pageBox'
+import PageBox from './components/PageBox'
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +20,7 @@ export default class App extends Component {
         <div style={{height:'4rem',width:'100%'}}>         
         </div>
         <div>{this.state.name}</div>
-        <pageBox></pageBox>
+        <PageBox></PageBox>
       </div>
     )
   }
