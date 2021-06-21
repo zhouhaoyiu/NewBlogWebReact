@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import BtnItem from './BtnItem'
 import './index.sass'
-export default class TopBar extends Component {
+class TopBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
       btns: [
-        { id: '1', name: '博客首页', path: '/First' },
+        { id: '1', name: '博客首页', path: '/Blog' },
         { id: '2', name: '关于我', path: '/AboutMe' },
         { id: '3', name: '小工具', path: '/LittleTools' }
       ],
-      select: '1'
+      select: '0'
     }
   }
 
@@ -20,12 +21,18 @@ export default class TopBar extends Component {
     })
     console.log(data);
   }
+  gotoFirst=() =>{
+    this.setState({
+      select:'0'
+    })
+    this.props.history.push('/First')
+  }
 
   render() {
     const { btns } = this.state
     return (
       <div className="topBar">
-        <div className="Author">周浩宇</div>
+        <div onClick={()=>this.gotoFirst()} className="Author">周浩宇</div>
         <div className="btnContent">         
             {btns.map(btn => {
               return <BtnItem key={btn.id} {...btn} select={this.state.select} changeSelect={this.changeSelect}></BtnItem>
@@ -35,3 +42,4 @@ export default class TopBar extends Component {
       </div>)
   }
 }
+export default withRouter(TopBar)

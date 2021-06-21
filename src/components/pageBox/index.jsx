@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-// import First from './First'
-// import LittleTools from './LittleTools'
+import { Route, Redirect, Switch } from 'react-router-dom'
+import First from './First'
+import Blog from './Blog'
+import LittleTools from './LittleTools'
 import AboutMe from './AboutMe'
 export default class PageBox extends Component {
   constructor(props) {
@@ -12,9 +13,13 @@ export default class PageBox extends Component {
   }
   render() {
     return (
-      <div>
+      <Switch>
+        <Route path='/First' component={First}></Route>
+        <Route path='/Blog' component={Blog}></Route>
         <Route path='/AboutMe' component={AboutMe}></Route>
-      </div>
+        <Route path='/LittleTools' component={LittleTools}></Route>
+        <Redirect to='/First'></Redirect>
+      </Switch>
     )
   }
 }

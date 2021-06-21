@@ -19,7 +19,6 @@ export default class App extends Component {
         <TopBar changeSelect={this.changeSelect}></TopBar>
         <div style={{height:'4rem',width:'100%'}}>         
         </div>
-        <div>{this.state.name}</div>
         <PageBox></PageBox>
       </div>
     )
