@@ -9,7 +9,8 @@ export default class BlogItem extends Component {
     super(props)
     this.state = {
       title: 'Loading',
-      content: null
+      content: null,
+      created:null
     }
   }
   async componentDidMount() {
@@ -22,16 +23,18 @@ export default class BlogItem extends Component {
     })
     this.setState({
       title: res.data.blog[0].title,
-      content: res.data.blog[0].content
+      content: res.data.blog[0].content,
+      created:res.data.blog[0].created
     })
-    console.log(res.data.blog[0].content);
+    console.log(res.data.blog[0].created);
   }
   render() {
-    const { title, content } = this.state
+    const { title, content, created } = this.state
     return (
       <div>
         <div>
-          {title}
+          <h1><center>{title}</center></h1>          
+          <h5><center>{created}</center></h5>
         </div>
         <ReactMarkdown
           className="markdown-body"

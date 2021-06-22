@@ -10,7 +10,7 @@ export default class First extends Component {
         </div>
         <div className="WX">
           <img width='200px' height='200px' alt='WX' src='WX.jpg'></img>
-          <p style={{ fontSize: '1.7rem'}}> WX</p>
+          <p style={{ fontSize: '1.7rem'}}> WeChat</p>
         </div>
         <p>
           Welcome to my blog
