@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TopBar from './components/TopBar'
 import PageBox from './components/PageBox'
+import 'antd/dist/antd.css'
 export default class App extends Component {
   constructor(props) {
     super(props)

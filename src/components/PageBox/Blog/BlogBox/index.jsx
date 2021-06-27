@@ -35,7 +35,7 @@ class BlogBox extends Component {
           </div>
         })}
       </div>
-    )
+    )    
   }
 }
 export default withRouter(BlogBox) 
