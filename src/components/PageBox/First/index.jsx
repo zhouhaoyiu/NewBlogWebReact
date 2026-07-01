@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './index.sass'
+import './index.scss'
 export default class First extends Component {
   render() {
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import BtnItem from './BtnItem'
-import './index.sass'
+import './index.scss'
 class TopBar extends Component {
   constructor(props) {
     super(props)

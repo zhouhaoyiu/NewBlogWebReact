@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import './index.sass'
+import './index.scss'
 import { withRouter } from 'react-router-dom'
-import { Tag } from 'element-react';
-
-import 'element-theme-default';
 class BlogBox extends Component {
   constructor(props) {
     super(props)
@@ -13,10 +9,11 @@ class BlogBox extends Component {
     }
   }
   async componentDidMount() {
-    let res = await axios.get('http://localhost:8099/blog/getAllBlogs')
+    const res = await fetch('http://localhost:8099/blog/getAllBlogs')
+    const data = await res.json()
 
     this.setState({
-      blog: res.data.blog
+      blog: data.blog || []
     })
   }
   goBlogItem=(id)=>{
@@ -28,7 +25,7 @@ class BlogBox extends Component {
       <div className="blogBox">
         {blog.map(blogs => {
           return <div className="blogItem" key={blogs.id}>
-            <Tag type="primary" className="blogLeng">共{blogs.content.length}字</Tag>
+            <span className="blogLeng">共{blogs.content.length}字</span>
             <span onClick={()=>this.goBlogItem(blogs.id)} className="blogTitle">{blogs.title}</span>
             <span className="blogCreated">{blogs.created}</span>
             <span className="blogDescription">{blogs.description}</span>
