@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import BtnItem from './BtnItem'
 import './index.scss'
 class TopBar extends Component {
@@ -25,7 +25,7 @@ class TopBar extends Component {
     this.setState({
       select:'0'
     })
-    this.props.history.push('/First')
+    this.props.navigate('/First')
   }
 
   render() {
@@ -42,4 +42,7 @@ class TopBar extends Component {
       </div>)
   }
 }
-export default withRouter(TopBar)
+export default function TopBarWithRouter(props) {
+  const navigate = useNavigate()
+  return <TopBar {...props} navigate={navigate} />
+}

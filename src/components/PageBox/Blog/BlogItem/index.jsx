@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { useParams } from 'react-router-dom'
 
-export default class BlogItem extends Component {
+class BlogItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -10,7 +11,7 @@ export default class BlogItem extends Component {
     }
   }
   async componentDidMount() {
-    const params = new URLSearchParams({ blogId: this.props.match.params.id })
+    const params = new URLSearchParams({ blogId: this.props.id })
     const res = await fetch(`http://localhost:8099/blog/getBlog?${params}`)
     const data = await res.json()
     const blog = data.blog?.[0] || {}
@@ -32,4 +33,8 @@ export default class BlogItem extends Component {
       </div>
     )
   }
+}
+export default function BlogItemWithRouter(props) {
+  const { id } = useParams()
+  return <BlogItem {...props} id={id} />
 }

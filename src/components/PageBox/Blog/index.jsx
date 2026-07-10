@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Route, Redirect, Switch } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import BlogItem from './BlogItem'
 import BlogBox from './BlogBox'
 
@@ -16,11 +16,11 @@ export default class Blog extends Component {
   }
   render() {
     return (      
-        <Switch>
-          <Route path='/Blog/all' component={BlogBox}></Route>          
-          <Route path='/Blog/item/:id' component={BlogItem}></Route>
-          <Redirect to='/Blog/all'></Redirect>
-        </Switch>     
+        <Routes>
+          <Route path='all' element={<BlogBox />}></Route>
+          <Route path='item/:id' element={<BlogItem />}></Route>
+          <Route path='*' element={<Navigate to='/Blog/all' replace />}></Route>
+        </Routes>     
     )
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './index.scss'
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 class BlogBox extends Component {
   constructor(props) {
     super(props)
@@ -17,7 +17,7 @@ class BlogBox extends Component {
     })
   }
   goBlogItem=(id)=>{
-    this.props.history.push(`/Blog/item/${id}`)
+    this.props.navigate(`/Blog/item/${id}`)
   }
   render() {
     const { blog } = this.state || []
@@ -35,4 +35,7 @@ class BlogBox extends Component {
     )    
   }
 }
-export default withRouter(BlogBox) 
+export default function BlogBoxWithRouter(props) {
+  const navigate = useNavigate()
+  return <BlogBox {...props} navigate={navigate} />
+}
