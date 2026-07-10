@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import TopBar from './components/TopBar'
-import PageBox from './components/PageBox'
+import TopBar from './components/TopBar/index.jsx'
+import PageBox from './components/PageBox/index.jsx'
 export default class App extends Component {
   constructor(props) {
     super(props)
