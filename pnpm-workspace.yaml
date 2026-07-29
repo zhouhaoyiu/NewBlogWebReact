@@ -1,2 +1,4 @@
 allowBuilds:
   '@parcel/watcher': true
+overrides:
+  postcss: 8.5.24

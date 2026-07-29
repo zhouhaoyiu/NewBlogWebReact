@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './index.scss'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 class BlogBox extends Component {
   constructor(props) {
     super(props)
