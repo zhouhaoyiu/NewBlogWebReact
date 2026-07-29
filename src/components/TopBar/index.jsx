@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import BtnItem from './BtnItem'
 import './index.scss'
 class TopBar extends Component {

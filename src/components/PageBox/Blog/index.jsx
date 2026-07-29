@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router'
 import BlogItem from './BlogItem'
 import BlogBox from './BlogBox'
 
